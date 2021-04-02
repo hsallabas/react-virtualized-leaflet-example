@@ -1,7 +1,5 @@
-import './App.css';
-
 import { Switch } from "react-router-dom";
-import PublicRoute from './Routes/PublicRoute';
+import PublicRoute from './routes/PublicRoute';
 import Layout from './pages/layouts/Layout';
 import Home from './pages/Home';
 

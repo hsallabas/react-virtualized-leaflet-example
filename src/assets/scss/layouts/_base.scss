@@ -1,0 +1,14 @@
+html,
+body {
+    height: 100%;
+}
+
+.layout-wrapper {
+    display: flex;
+}
+
+.b-content {
+    margin-top: 90px;
+    margin-left: 20px;
+    width: calc(100% - 270px);
+}
