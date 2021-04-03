@@ -5,16 +5,16 @@ import Main from "./Main";
 import Sidebar from "./Sidebar";
 
 const Layout = ({ children }) => {
-    return (
-        <>
-            <Header/>
-            <div className="layout-wrapper">
-                <Sidebar />
-                <Main>{children}</Main>
-            </div>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <div className="layout-wrapper">
+        <Sidebar />
+        <Main>{children}</Main>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;
