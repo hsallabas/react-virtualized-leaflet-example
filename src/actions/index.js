@@ -1,15 +1,23 @@
 // import vehicles from '../api/vehicles'
 import * as types from "../constants/ActionTypes";
+import {
+  setLocationToVehicleData,
+} from "../helpers/locationHelper";
 
 const receiveVehicles = (vehicles) => ({
   type: types.GET_ALL_VEHICLES,
   vehicles,
 });
 
-export const getVehicles = () => async (dispatch) => {
-  fetch("http://console-api.tracmobility.com/test/vehicles?page=0&size=10")
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch(receiveVehicles(data));
-    });
-};
+export function getVehicles(pageNumber, size) {
+  return function (dispatch) {
+    fetch(
+      `http://console-api.tracmobility.com/test/vehicles?page=${pageNumber}&size=${size}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setLocationToVehicleData(data);
+        dispatch(receiveVehicles(data));
+      });
+  };
+}

@@ -1,28 +1,13 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { getVehicles } from "../actions";
+import React from "react";
+import VehiclesTable from "../components/VehiclesTable";
 
-const Home = ({ vehicles, getVehicles }) => {
-  useEffect(() => {
-    getVehicles();
-  }, [getVehicles]);
+const Home = () => {
 
   return (
     <div>
-      Home Component
-      {console.log(vehicles)}
+      <VehiclesTable />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  vehicles: state.vehicles.data,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getVehicles: () => dispatch(getVehicles()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
