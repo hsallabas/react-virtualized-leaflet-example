@@ -1,8 +1,11 @@
 .b-footer {
     position: fixed;
     bottom: 0;
-    left: 250px;
-    width: calc(100% - 250px);
-    height: 30px;
-    background: red;
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: var(--footer-height);
+    background: $body-bg;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }

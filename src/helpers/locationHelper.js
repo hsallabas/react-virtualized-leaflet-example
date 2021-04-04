@@ -11,7 +11,7 @@ export function setLocationToVehicleData(vehicleList) {
 
 export function getLastLocations() {
   return _locations.reduce((acc, curr, index) => {
-    if (index > 0 && _locations[index - 1].OrderID < curr.OrderID) {
+    if (index > 0 && _locations[index - 1].orderID < curr.orderID) {
       acc.push(_locations[index - 1]);
     }
     if (_locations.length - 1 === index) {

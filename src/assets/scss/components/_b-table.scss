@@ -1,0 +1,159 @@
+.b-table-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $white-lilac;
+    padding: 0.75rem 1rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: .0625rem solid $border-color;
+
+    &__name {
+        color: $primary;
+        font-weight: 500;
+    }
+}
+
+.b-table-wrapper {
+    background-color: $white;
+    padding: 1rem;
+}
+
+.b-table-entries {
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: $fs--2;
+    padding: .5rem 0 .75rem;
+
+    &__select {
+        max-width: 3.5rem;
+        padding: 0 .3rem;
+        height: 1.5rem;
+        font-size: $fs--2;
+        margin: 0 .25rem;
+        border: .0625rem solid $border-color;
+        border-radius: 3px;
+    }
+}
+
+.ReactVirtualized__Table {
+    width: 100%;
+    background-color: $white;
+    
+    &__headerRow, &__row, &__Grid {
+        width: 100% !important;
+    }
+
+    &__headerRow, &__row {
+        text-transform: capitalize !important;
+        font-weight: 500 !important;
+        color: $manatee !important;
+        font-size: $fs--2;
+        border-top: .0625rem solid $border-color;
+        border-bottom: .0625rem solid $border-color;
+        height: auto !important;
+    }
+
+    &__row {
+        font-weight: 400 !important;
+        border-top: 0;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .ReactVirtualized__Grid__innerScrollContainer {
+        max-width: 100% !important; 
+    }
+
+    &__headerColumn, &__rowColumn {
+        margin: 0 !important;
+        flex: auto !important;
+        padding: .5rem;
+        border-right: .0625rem solid $border-color;
+        
+        &:first-child {
+           width: 10%; 
+           border-left: .0625rem solid $border-color;
+        }
+
+        &:nth-child(2) {
+            width: 10%; 
+        }
+
+        &:nth-child(3) {
+            width: 10%; 
+        }
+
+        &:nth-child(4) {
+            width: 25%; 
+        }
+
+        &:nth-child(5) {
+            width: 15%; 
+        }
+
+        &:last-child {
+            width: 30%; 
+        }
+    }
+
+    &__headerColumn {
+        display: flex;
+    }
+
+    &__rowColumn {
+        &:first-child {
+            cursor: pointer;
+            color: $mariner;
+        }
+    }
+}
+
+.b-table-bottom {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $fs--2;
+
+    &__paginator {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+        &__page-number {
+            background-color: $mariner;
+            color: $white;
+            padding: 0.4rem 0.6rem;
+            min-height: 35px;
+            display: flex;
+            align-items: center;
+        }
+    
+        &__button-prev {
+            border: .0625rem solid $border-color !important;
+            border-top-left-radius: .4rem !important;
+            border-bottom-left-radius: .4rem !important;
+
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+
+        &__button-next {
+            border: .0625rem solid $border-color !important;
+            border-top-right-radius: .4rem !important;
+            border-bottom-right-radius: .4rem !important;
+
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+
+
