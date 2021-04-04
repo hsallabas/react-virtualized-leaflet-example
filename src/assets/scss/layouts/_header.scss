@@ -13,7 +13,9 @@
     z-index: 1051;
 
     &__search {
-
+        span {
+            background-color: $white-lilac;
+        }
     }
 
     &__user {

@@ -7,7 +7,16 @@ const PLACEHOLDER_IMAGE = "https://www.placecage.com/300/206";
 const Header = () => {
   return (
     <header className="b-header">
-      <div className="b-header__search">search</div>
+      <div className="b-header__search">
+        <div className="input-group">
+          <input type="text" className="form-control" placeholder="Search" />
+          <div className="input-group-append">
+            <span className="input-group-text" id="inputGroupPrepend">
+              @
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="b-header__user">
         <div className="b-header__user-notifications">
           <div className="b-header__user-notifications-icon">

@@ -1,7 +1,7 @@
 .b-sidebar {
     background-color: $primary;
     height: 100vh;
-    width: var(--sidebar-width);
+    width: calc(var(--sidebar-width) + .25rem);
     color: $white;
     padding: .5rem;
 
