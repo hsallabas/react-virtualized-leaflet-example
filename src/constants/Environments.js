@@ -1,1 +1,1 @@
-export const BASE_URL = "http://console-api.tracmobility.com/test";
+export const BASE_URL = "https://console-api.tracmobility.com/test";
