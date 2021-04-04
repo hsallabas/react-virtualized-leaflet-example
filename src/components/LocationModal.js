@@ -30,22 +30,38 @@ const LocationModal = ({ orderID, closeLocationModal }) => {
         <div className="modal-dialog modal-dialog-centered b-modal-dialog">
           <div className="modal-content b-modal-location">
             <div className="modal-body">
-              <p>{orderID}</p>
-              <MapContainer center={[51.5176398, -0.1204129]} zoom={10}>
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {locations &&
-                  locations.length &&
-                  locations.map((location, index) => (
-                    <Marker key={index} position={[location.lat, location.lng]}>
-                      <Popup>
-                        {location.Timestamp}
-                      </Popup>
-                    </Marker>
-                  ))}
-              </MapContainer>
+              <div className="b-modal-location__header">
+                <div className="b-modal-location__header-info">
+                  <span className="b-modal-location__header-info__title">
+                    Order ID:{" "}
+                  </span>
+                  {orderID}
+                </div>
+                <div
+                  className="b-modal-location__header-info__close"
+                  onClick={() => closeLocationModal()}
+                >
+                  Close
+                </div>
+              </div>
+              <div className="b-modal-location__map">
+                <MapContainer center={[51.5176398, -0.1204129]} zoom={14}>
+                  <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {locations &&
+                    locations.length &&
+                    locations.map((location, index) => (
+                      <Marker
+                        key={index}
+                        position={[location.lat, location.lng]}
+                      >
+                        <Popup>{location.Timestamp}</Popup>
+                      </Marker>
+                    ))}
+                </MapContainer>
+              </div>
             </div>
           </div>
         </div>

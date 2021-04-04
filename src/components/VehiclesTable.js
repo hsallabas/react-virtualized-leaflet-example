@@ -35,7 +35,6 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
 
   useEffect(() => {
     if (rowData && columnDataKey === "uuid") {
-      console.log(rowData);
       updateOrderID(rowData.location.orderID);
       setRowData("");
     }
@@ -44,27 +43,24 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
   return (
     <div>
       {vehicles && vehicles.content && vehicles.content.length > 0 ? (
-        <div>
+        <div className="b-table-wrapper">
           <div className="b-table-title">
             <div className="b-table-title__name">Vehicle List</div>
             <div className="b-table-title__menu">i</div>
           </div>
-          <div className="b-table-wrapper">
+          <div className="b-table-content-wrapper">
             <div className="b-table-entries">
               <span>Show</span>
               <select
                 className="b-table-entries__select"
                 id="exampleFormControlSelect1"
-                onChange={(event) => setEntryCount(event.target.value)} 
+                onChange={(event) => setEntryCount(event.target.value)}
                 value={entryCount}
               >
                 {ENTRIES &&
                   ENTRIES.length &&
                   ENTRIES.map((item, index) => (
-                    <option
-                      key={index}
-                      value={item.value}
-                    >
+                    <option key={index} value={item.value}>
                       {item.label}
                     </option>
                   ))}
@@ -92,7 +88,7 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
                 label="Location"
                 dataKey="location"
                 cellDataGetter={({ rowData }) =>
-                  `(${rowData.location.lat} - ${rowData.location.lng})`
+                  `(${rowData.location.lat}, ${rowData.location.lng})`
                 }
               />
               <Column
