@@ -3,6 +3,7 @@ import { Column, Table } from "react-virtualized";
 import { connect } from "react-redux";
 import { getVehicles, updateOrderID } from "../actions";
 import "react-virtualized/styles.css";
+import MenuIcon from "../assets/images/menu.svg";
 
 const ENTRIES = [
   {
@@ -46,7 +47,7 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
         <div className="b-table-wrapper">
           <div className="b-table-title">
             <div className="b-table-title__name">Vehicle List</div>
-            <div className="b-table-title__menu">i</div>
+            <div className="b-table-title__menu"><img src={MenuIcon} alt="icon" /></div>
           </div>
           <div className="b-table-content-wrapper">
             <div className="b-table-entries">
