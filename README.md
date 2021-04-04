@@ -1,6 +1,5 @@
 # Trac Mobility Location History App
 
-![Vercel]()
 ### [DEMO]()
 Trac Mobility Location History App gives the users ability to track their mobile vehicles' location history.
 
