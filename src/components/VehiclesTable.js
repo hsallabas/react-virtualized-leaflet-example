@@ -25,6 +25,7 @@ const ENTRIES = [
 ];
 
 const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
+  const [entries] = useState(ENTRIES);
   const [entryCount, setEntryCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const [rowData, setRowData] = useState("");
@@ -58,9 +59,9 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
                 onChange={(event) => setEntryCount(event.target.value)}
                 value={entryCount}
               >
-                {ENTRIES &&
-                  ENTRIES.length &&
-                  ENTRIES.map((item, index) => (
+                {entries &&
+                  entries.length &&
+                  entries.map((item, index) => (
                     <option key={index} value={item.value}>
                       {item.label}
                     </option>
@@ -135,7 +136,7 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
           </div>
         </div>
       ) : (
-        <div>asdad</div>
+        <div>Loading...</div>
       )}
     </div>
   );

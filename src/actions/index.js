@@ -8,6 +8,12 @@ const receiveVehicles = (vehicles) => ({
   vehicles,
 });
 
+/**
+ * get vehicle data from API and update store.
+ * @param {*} pageNumber 
+ * @param {*} size 
+ * @returns 
+ */
 export function getVehicles(pageNumber, size) {
   return function (dispatch) {
     fetch(`${BASE_URL}/vehicles?page=${pageNumber}&size=${size}`)
@@ -19,6 +25,11 @@ export function getVehicles(pageNumber, size) {
   };
 }
 
+/**
+ * update orderID to open or close location map modal
+ * @param {*} orderID 
+ * @returns 
+ */
 export function updateOrderID(orderID) {
   return { type: types.GET_SELECTED_VEHICLE_ORDER_ID, payload: orderID };
 }

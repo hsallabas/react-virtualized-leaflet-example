@@ -4,7 +4,13 @@ const INITIAL_STATE = {
   orderID: '',
 };
 
-export default function getVehicles(state = INITIAL_STATE, action) {
+/**
+ * store selected vehicle location orderID
+ * @param {*} state current state
+ * @param {*} action new data
+ * @returns 
+ */
+export default function getOrderID(state = INITIAL_STATE, action) {
   switch (action.type) {
     case GET_SELECTED_VEHICLE_ORDER_ID:
       return {
