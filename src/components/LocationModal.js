@@ -22,7 +22,7 @@ const LocationModal = ({ orderID, closeLocationModal }) => {
 
   useEffect(() => {
     setLocations(getLastHistory(orderID));
-  }, [setLocations]);
+  }, [setLocations, orderID]);
 
   return (
     <>
@@ -38,8 +38,8 @@ const LocationModal = ({ orderID, closeLocationModal }) => {
                 />
                 {locations &&
                   locations.length &&
-                  locations.map((location) => (
-                    <Marker position={[location.lat, location.lng]}>
+                  locations.map((location, index) => (
+                    <Marker key={index} position={[location.lat, location.lng]}>
                       <Popup>
                         {location.Timestamp}
                       </Popup>

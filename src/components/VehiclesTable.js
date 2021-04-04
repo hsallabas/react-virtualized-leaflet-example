@@ -4,6 +4,25 @@ import { connect } from "react-redux";
 import { getVehicles, updateOrderID } from "../actions";
 import "react-virtualized/styles.css";
 
+const ENTRIES = [
+  {
+    value: 5,
+    label: "5",
+  },
+  {
+    value: 10,
+    label: "10",
+  },
+  {
+    value: 15,
+    label: "15",
+  },
+  {
+    value: 20,
+    label: "20",
+  },
+];
+
 const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
   const [entryCount, setEntryCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,22 +51,23 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
           </div>
           <div className="b-table-wrapper">
             <div className="b-table-entries">
-              {/* <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={() => setEntryCount(entryCount + 5)}
-            >
-              Show Entries
-            </button> */}
               <span>Show</span>
               <select
                 className="b-table-entries__select"
                 id="exampleFormControlSelect1"
+                onChange={(event) => setEntryCount(event.target.value)} 
+                value={entryCount}
               >
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
+                {ENTRIES &&
+                  ENTRIES.length &&
+                  ENTRIES.map((item, index) => (
+                    <option
+                      key={index}
+                      value={item.value}
+                    >
+                      {item.label}
+                    </option>
+                  ))}
               </select>
               <span>entries</span>
             </div>
@@ -65,7 +85,7 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
               onRowClick={(data) => setRowData(data.rowData)}
             >
               <Column label="VehicleID" dataKey="uuid" width={100} />
-              <Column width={100} label="Description" dataKey="qrCode" />
+              <Column width={100} label="QR Code" dataKey="qrCode" />
               <Column width={100} label="Status" dataKey="status" />
               <Column
                 width={100}
