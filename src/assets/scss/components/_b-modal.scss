@@ -1,16 +1,12 @@
 .b-modal-dialog {
   z-index: 1041;
+  max-width: 43.75rem !important;
 }
+
 .b-modal-location {
   padding: 0.5rem;
+}
 
-  &__close {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    img {
-      width: 0.7rem;
-    }
-  }
+.leaflet-container {
+  height: 31.25rem;
 }

@@ -20,3 +20,12 @@ export function getLastLocations() {
     return acc;
   }, []);
 }
+
+export function getLastHistory(orderID) {
+  return _locations.reduce((acc, curr) => {
+    if (orderID === curr.orderID) {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
+}
