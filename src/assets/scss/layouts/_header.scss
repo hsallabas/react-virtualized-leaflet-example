@@ -39,7 +39,7 @@
         &::after {
             content: "";
             position: absolute;
-            border-right: 1px solid red;
+            border-right: .0625rem solid $manatee;
             height: 100%;
             right: 0;
         }

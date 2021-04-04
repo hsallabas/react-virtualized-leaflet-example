@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Trac Mobility Location History App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Vercel]()
+### [DEMO]()
+Trac Mobility Location History App gives the users ability to track their mobile vehicles' location history.
 
-## Available Scripts
+## Features
+
+- Ability to show the list of vehicle' information
+- Dashboard based UI
+- Ability to change vehicle information table entries count. 
+- Paging of vehicle information table
+- Ability to show table page size
+- Multiple featured side menu
+
+---
+## Tech
+
+Trac Mobility Location History App is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses open source projects listed below to work properly:
+
+- [Leaflet](https://leafletjs.com) - Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 39 KB of JS, it has all the mapping features most developers ever need.
+- [redux](https://redux.js.org/) - Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
+- [react-virtualized](https://bvaughn.github.io/react-virtualized) - React components for efficiently rendering large lists and tabular data.
+- [Bootstrap SCSS](https://www.npmjs.com/package/bootstrap-scss) - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+
+---
+## Installation & Available Scripts
+
+Trac Mobility Location History App requires [Node.js](https://nodejs.org/) v10+ to run.
+
+Cloning project and installing dependencies
+
+```sh
+git clone https://github.com/Tracmobility/senior-frontend-assessment
+cd trac-mobility
+yarn install
+```
 
 In the project directory, you can run:
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
+##### `yarn start`
+Runs the app in the development mode. The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn test`
+##### `yarn test`
+Launches the test runner in the interactive watch mode. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### `yarn build`
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+The build is minified and the filenames include the hashes.
 
-### `yarn build`
+## App Flow & Code Examples
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Project Structure
+```
+project
+|-- public
+|-- src
+|    |-- actions
+|    |-- assests
+|    |      |-- images
+|    |      |-- json
+|    |      `-- css
+|    |-- components
+|    |-- constants
+|    |-- helpers
+|    |-- pages
+|    |-- reducers
+|    |-- routes
+|    `-- index.js
+|-- package.json
+`-- README.md
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+App uses the Fetch API provides to get data from [TracMobility test API](http://console-api.tracmobility.com/test/vehicles?page=0&size=10). Then it passes the returned data to the app context for showing to users
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+App is initializes with an itial state created and distributed by the redux
 
-### `yarn eject`
+```sh
+const INITIAL_STATE = {
+  data: {},
+};
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const store = createStore(reducer, applyMiddleware(thunk));
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+  document.getElementById("root")
+);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`getVehicles` is an action function that is used to call the data, and it needs pageNumber, size parameters to run.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+export function getVehicles(pageNumber, size) {
+  return function (dispatch) {
+    fetch(`${BASE_URL}/vehicles?page=${pageNumber}&size=${size}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setLocationToVehicleData(data);
+        dispatch(receiveVehicles(data));
+      });
+  };
+}
+```
 
-## Learn More
+`setLocationToVehicleData` is a helper function that is used to add a location field to the vehicle data, and it needs 'a list of vehicles' to run.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+export function setLocationToVehicleData(vehicleList) {
+  const lastLocations = getLastLocations();
+  return vehicleList.content.reduce((acc, curr, index) => {
+    curr["location"] = lastLocations[index % 10];
+    acc.push(curr);
+    return acc;
+  }, []);
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ToDo's
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- waiting feedback
