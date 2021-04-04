@@ -1,7 +1,7 @@
 import React from 'react'
 import LocationModal from '../components/LocationModal'
 
-export default function TaskList() {
+const TaskList = () => {
     return (
         <div>
             TaskList
@@ -9,3 +9,5 @@ export default function TaskList() {
         </div>
     )
 }
+
+export default TaskList

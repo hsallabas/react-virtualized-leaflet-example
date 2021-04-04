@@ -2,4 +2,88 @@
     background-color: $primary;
     height: 100vh;
     width: var(--sidebar-width);
+    color: $white;
+    padding: .5rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $border-color;
+        padding-bottom: .375rem;
+
+        &__logo {
+            img {
+                height: 2.5rem;
+            }
+        }
+
+        &__brand {
+            font-size: $fs-2;
+            font-weight: 500;
+            padding-right: 1rem;
+        }
+    }
+
+    &__nav-menu {
+        ul {
+            margin-bottom: 0px;
+            padding-left: 0px;
+            list-style: none;
+
+            li {
+                margin: 1.5rem 0;
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+        &__node-list {
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-color;
+            }
+
+            &__title {
+                text-transform: uppercase;
+                font-size: $fs--2;
+                display: block;
+                margin-top: 1rem;
+            }
+
+            &__child-node {
+                span {
+                    margin-bottom: .75rem;
+                    display: block;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                li {
+                    margin: 0 !important;
+                    padding: .5rem 0 .5rem 1rem;
+                    background-color: $white;
+
+                    a {
+                        color: $black !important;
+                    }
+
+                    &:nth-child(2) {
+                        padding-top: 1rem;
+                        border-top-left-radius: .3125rem!important;
+                        border-top-right-radius: .3125rem !important;
+                    }
+
+                    &:last-child {
+                        padding-bottom: 1rem;
+                        border-bottom-left-radius: .3125rem!important;
+                        border-bottom-right-radius: .3125rem !important;
+                    }
+                }
+            }
+        }
+    }
 }

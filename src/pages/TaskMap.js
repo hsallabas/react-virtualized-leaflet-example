@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function TaskMap() {
+const TaskMap = () => {
     return (
         <div>
             TaskMap
         </div>
     )
 }
+
+export default TaskMap

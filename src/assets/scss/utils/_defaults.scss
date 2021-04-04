@@ -1,6 +1,6 @@
 :root {
-    --header-height: 3.125rem;
-    --sidebar-width: 12.5rem;
+    --header-height: 3.4375rem;
+    --sidebar-width: 13.75rem;
     --footer-height: 1.875rem;
 }
 
@@ -9,6 +9,7 @@ $font-family-base: 'Ubuntu', sans-serif !default;
 $font-size-base: 0.875rem !default;
 $fs--4: $font-size-base - 0.25rem !default;
 $fs--2: $font-size-base - 0.125rem !default;
+$fs-2: $font-size-base + 0.125rem !default;
 $fs-4: $font-size-base + 0.25rem !default;
 $fs-8: $font-size-base + 0.5rem !default;
 

@@ -108,7 +108,7 @@ const VehiclesTable = ({ vehicles, getVehicles, updateOrderID }) => {
             </Table>
             <div className="b-table-bottom">
               <div className="b-table-bottom__info">
-                <span>Showing 1 to 3 of 3 entries</span>
+                <span>Showing 1 to {entryCount} of {entryCount} entries</span>
               </div>
               <div className="b-table-bottom__paginator">
                 <button
