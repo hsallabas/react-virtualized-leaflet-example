@@ -13,5 +13,5 @@ const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => {
     />
   );
 };
- 
+
 export default PublicRoute;
