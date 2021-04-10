@@ -1,7 +1,7 @@
-# Trac Mobility Location History App
+# React-Virtualized-Leaflet Location History App
 
 ### [DEMO]()
-Trac Mobility Location History App gives the users ability to track their mobile vehicles' location history.
+React-Virtualized-Leaflet Location History App gives the users ability to track their mobile vehicles' location history.
 
 ## Features
 
@@ -15,7 +15,7 @@ Trac Mobility Location History App gives the users ability to track their mobile
 ---
 ## Tech
 
-Trac Mobility Location History App is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses open source projects listed below to work properly:
+React-Virtualized-Leaflet Location History App is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses open source projects listed below to work properly:
 
 - [Leaflet](https://leafletjs.com) - Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 39 KB of JS, it has all the mapping features most developers ever need.
 - [redux](https://redux.js.org/) - Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
@@ -25,7 +25,7 @@ Trac Mobility Location History App is bootstrapped with [Create React App](https
 ---
 ## Installation & Available Scripts
 
-Trac Mobility Location History App requires [Node.js](https://nodejs.org/) v10+ to run.
+React-Virtualized-Leaflet Location History App requires [Node.js](https://nodejs.org/) v10+ to run.
 
 Cloning project and installing dependencies
 
